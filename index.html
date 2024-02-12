@@ -9,8 +9,6 @@
     <meta name="author" content="黄静">
     <meta name="keywords" content="黄静">
     <meta name="description" content="黄静">
-
-    <link rel="shortcut icon" href="https://www.scode1.com/favicon.ico">
     <link rel="stylesheet" href="css/style.css">
     <title>欢迎来到黄静的个人网站</title>
 </head>
@@ -127,7 +125,34 @@
                     </div>
                     <div class="markdown index">
                         <p>姓名：黄静</p>
-                        <p>年龄：22</p>
+                        <script>
+                            function calculateAge() {
+                                var birthDate = new Date("2000-10-18"); // 填入您的出生日期
+                                var currentDate = new Date();
+                                var age = currentDate.getFullYear() - birthDate.getFullYear();
+
+                                // 检查当前日期是否是生日
+                                if (
+                                    currentDate.getMonth() + 1 === birthDate.getMonth() + 1 &&
+                                    currentDate.getDate() === birthDate.getDate()
+                                ) {
+                                    age++; // 如果是生日，增加一岁
+                                    var ageElement = document.getElementById("age");
+                                    ageElement.innerText = "年龄：" + age;
+
+                                    // 显示生日祝福信息
+                                    ageElement.insertAdjacentHTML('beforeend', '<p class="desc rainbow-text"> 祝你生日快乐！---啊政 </p>');
+                                } else {
+                                    var ageElement = document.getElementById("age");
+                                    ageElement.innerText = "年龄：" + age;
+                                }
+                            }
+
+                            window.onload = function () {
+                                calculateAge();
+                            };
+                        </script>
+                        <p id="age">年龄：</p>
                         <p>教育背景：本科 工学学士</p>
                         <br><Hr><br>
                     </div>
